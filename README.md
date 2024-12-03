@@ -2,18 +2,19 @@
 # Nutanix NKP Quickstart guide
 This is a quickstart guide to get up & running with NKP in a non-airgapped environment.
 
+## Table of Contents
+
+- [Pre-Requisites](#pre-requisites)
+- [Step 1: Create Linux Jump Host](#step-1-create-linux-jump-host)
+- [Step 2: Deploy NKP](#step-2-deploy-nkp)
+- [Appendix 1: NKP CLI v2.12.1 CLI Flags](#appendix-1-nkp-cli-v2121-flags-for-nutanix-deployment)
+- [Appendix 2: Example Export & Installation Script](#appendix-2-example-nkp-cli-export--execution)
+
 ## Pre-Requisites
 
 - Internet connectivity
 - Access to the Nutanix Support portal
 - Existing Nutanix NCI / NCM deployment
-
-## Table of Contents
-
-- [Step 1: Create Linux Jump Host](#step-1-create-linux-jump-host)
-- [Step 2: Deploy NKP](#step-2-deploy-nkp)
-- [Appendix 1: NKP CLI v2.12.1 CLI Flags](#appendix-1-nkp-cli-v2121-flags-for-nutanix-deployment)
-- [Appendix 2: Example Export & Installation Script](#appendix-2-example-nkp-cli-export--execution)
 
 ## Step 1: Create Linux Jump Host
 
