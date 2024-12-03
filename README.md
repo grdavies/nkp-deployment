@@ -129,7 +129,7 @@ This installation method lets you fully customize your cluster configuration.
 
     **_NOTE:_** You may have to encapsulate your settings with apostrophes `''` if they contain special characters - for example your passwords likely meet this requirement.
 
-3. In a text editor create a new document that will become the installation script for NKP. This will contain the execution of the NKP CLI using the variables that were previously set. I have included an example [here](#appendix-2-execution-script).
+3. In a text editor create a new document that will become the installation script for NKP. This will contain the execution of the NKP CLI using the variables that were previously set. I have included an example [here](#appendix-2-installation-script).
 
     - If your Nutanix Prism Central is not using trusted certificates be sure to provide the `--insecure` flag.
     - You must provide either `--dry-run` or `--self-managed`.
@@ -275,7 +275,7 @@ export REGISTRY_USERNAME=dockerhub_user                                         
 export REGISTRY_PASSWORD='dockerhub_password'                                                 # UPDATE with your dockerhub password
 ```
 
-#### Appendix 2: Execution Script Dry Run
+#### Appendix 2: Dry Run Script
 
 ```bash
 nkp create cluster nutanix -c $CLUSTER_NAME \
@@ -299,7 +299,7 @@ nkp create cluster nutanix -c $CLUSTER_NAME \
     --dry-run
 ```
 
-#### Appendix 2: Execution Script
+#### Appendix 2: Installation Script
 
 ```bash
 nkp create cluster nutanix -c $CLUSTER_NAME \
