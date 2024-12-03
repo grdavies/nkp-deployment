@@ -265,15 +265,15 @@ export NUTANIX_USER=admin                                                       
 export NUTANIX_PASSWORD='password'                                                            # UPDATE with Prism Central user's password. Keep the password enclosed between single quotes - Ex: 'password'
 export NUTANIX_ENDPOINT=10.54.80.39                                                           # UPDATE with Prism Central IP address
 export NUTANIX_PORT=9440                                                                      # Prism Central port (default: 9440)
-export LB_IP_RANGE=10.54.80.11-10.54.80.11                                                    # UPDATE with the External Load balancer IP range. Must not be in AHV IPAM. Ex: 10.42.236.204-10.42.236.204
+export LB_IP_RANGE=10.54.80.11-10.54.80.20                                                    # UPDATE with the External Load balancer IP range. Must not be in AHV IPAM. Ex: 10.42.236.204-10.42.236.204
 export CONTROL_PLANE_ENDPOINT_IP=10.54.80.10                                                  # UPDATE with the Kubernetes VIP. Must be in the same subnet as the VMs. Must not be in AHV IPAM. - Ex: 10.42.236.203
 export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.4-release-1.29.6-20240816215147.qcow2  # UPDATE with the NKP Rocky image name
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=CLUSTER1234                                         # UPDATE with Prism Element cluster name - Ex: PHX-POC207
 export NUTANIX_SUBNET_NAME=primary                                                            # UPDATE with the subnet name on which to deploy the NKP cluster
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer                                    # UPDATE with the Prism storage container on which to deploy the NKP cluster
 export REGISTRY_URL=[https://registry-1.docker.io](https://registry-1.docker.io/)
-export REGISTRY_USERNAME=dockerhub_user                                                       # UPDATE with your dockerhub username
-export REGISTRY_PASSWORD='dockerhub_password'                                                 # UPDATE with your dockerhub password
+export REGISTRY_USERNAME=your_dockerhub_user                                                  # UPDATE with your dockerhub username
+export REGISTRY_PASSWORD='your_dockerhub_password'                                            # UPDATE with your dockerhub password
 ```
 
 #### Appendix 2: Dry Run Script
