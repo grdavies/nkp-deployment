@@ -76,12 +76,12 @@ From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.
         - "/var/log/cloud-final.err"
     ```
 
-3. Open an SSH session to the newly created VM using the `nutanix` user account and the password set in line 14 of the `cloud-init` script. 
+1. Open an SSH session to the newly created VM using the `nutanix` user account and the password set in line 14 of the `cloud-init` script.  If necessary you might have to re-connect your SSH when prompted.
 
     **_NOTE:_** After 10-15 minutes the VM should be ready for use. 
         If you logged onto the VM console you should see a message like this `If you are seeing this message, please reconnect your SSH session.` If not, check `/var/log/cloud-final.out` for this message to continue.
 
-4. From the [Nutanix Download Site](https://portal.nutanix.com/page/downloads/list) and find the `NKP binary for Linux OS` download. Click on the three dots to the right of the `Download` button and choose to `Copy Download Link`. Save this link for use with the script below.
+1. From the [Nutanix Download Site](https://portal.nutanix.com/page/downloads/list) and find the `NKP binary for Linux OS` download. Click on the three dots to the right of the `Download` button and choose to `Copy Download Link`. Save this link for use with the script below.
 
     **_NOTE:_** The copied link is only valid for 10 hours. 
 
