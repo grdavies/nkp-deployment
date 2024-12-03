@@ -139,6 +139,9 @@ This installation method lets you fully customize your cluster configuration.
     - `--control-plane-endpoint-ip` will be the IP address that can be used to access the NKP UI after installation.
     - The default Kubernetes Pod Network CIDR is 192.168.0.0/16. Provide a new range using the flag `--kubernetes-pod-network-cidr` if that will cause a conflict on your network.
     - If you wish to place your NKP cluster VMs into a Prism Central Project provide the `--control-plane-pc-project` and/or the `--worker-pc-project` flags.
+    - If you wish to place the NKP deployment into categories to apply security rules / micro-segmentation you can do so with these flags
+      - `--control-plane-pc-categories`
+      - `--worker-pc-categories`
     - You can control both the number of VMs deployed for the control plane and worker node pool and their sizes for this NKP cluster. Be careful changing these values as there both unexpected behavior and system performance can occur. **_NOTE:_** Do not change these values without guidance from Nutanix for a production NKP deployment.
       - `--control-plane-replicas` sets the number of control plane nodes (default 3)
       - `--control-plane-vcpus` sets the number of vCPUs to use in a control plane machine (default 4)
