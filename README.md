@@ -1,5 +1,6 @@
 
 # Nutanix NKP Quickstart guide
+
 This is a quickstart guide to get up & running with NKP in a non-airgapped environment.
 
 ## Table of Contents
@@ -31,7 +32,6 @@ From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.
     - Select to customize using a "custom script" and use the `cloud-init` script below. Replace the password defined on line 14 with one of your own choosing.
 
     **_NOTE:_** If you do not know how to create a VM consult the documentation for either [Prism Central](https://portal.nutanix.com/page/documents/details?targetId=Prism-Central-Guide-vpc_2024_2:mul-vm-create-acropolis-pc-t.html) or [AHV](https://portal.nutanix.com/page/documents/details?targetId=AHV-Admin-Guide-v6_10:wc-vm-create-acropolis-wc-t.html).
-
 
     ```yaml
     #cloud-config
@@ -79,12 +79,12 @@ From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.
 
 1. Open an SSH session to the newly created VM using the `nutanix` user account and the password set in line 14 of the `cloud-init` script.  If necessary you might have to re-connect your SSH when prompted.
 
-    **_NOTE:_** After 10-15 minutes the VM should be ready for use. 
+    **_NOTE:_** After 10-15 minutes the VM should be ready for use.
         If you logged onto the VM console you should see a message like this `If you are seeing this message, please reconnect your SSH session.` If not, check `/var/log/cloud-final.out` for this message to continue.
 
 1. From the [Nutanix Download Site](https://portal.nutanix.com/page/downloads/list) and find the `NKP binary for Linux OS` download. Click on the three dots to the right of the `Download` button and choose to `Copy Download Link`. Save this link for use with the script below.
 
-    **_NOTE:_** The copied link is only valid for 10 hours. 
+    **_NOTE:_** The copied link is only valid for 10 hours.
 
     Install the NKP CLI by running the following command. When prompted provide the previously copied link.
 
@@ -92,15 +92,14 @@ From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.
     curl -fsSL https://raw.githubusercontent.com/nutanixdev/nkp-quickstart/main/scripts/get-nkp-cli | bash
     ```
 
-
 ## Step 2: Deploy NKP
 
 During this step you will provide all the variables necessary for the deployment of your NKP management cluster and initiate the deployment. There are two options which you can use for the installation; [Prompt-Based Installation](#step-2a-prompt-based-installation) or [CLI Installation](#step-2b-cli-installation).
 
-- The Prompt-Based Installation is a wizard driven installation method. This method is simplier and should be used when the Internet connection for the NKP cluster isn’t shared with more users. 
+- The Prompt-Based Installation is a wizard driven installation method. This method is simplier and should be used when the Internet connection for the NKP cluster isn’t shared with more users.
 - The CLI Installation is a little more involved and allows for more customization. If advanced NCI features like `Network Virtualization` are in use this method is required. It should also be selected when the Internet connection for the NKP cluster is shared between many users.
 
-For what its worth, its beneficial getting familiar with the [CLI Installation](#step-2b-cli-installation) method as its significantly more repeatable and flexible. 
+For what its worth, its beneficial getting familiar with the [CLI Installation](#step-2b-cli-installation) method as its significantly more repeatable and flexible.
 
 ### Step 2a: Prompt-Based Installation
 
@@ -116,7 +115,7 @@ nkp create cluster nutanix
 
 This installation method lets you fully customize your cluster configuration.
 
-1. To get a full list of all available options you can run the following command. I have included the list of available options in the appendix [here](#appendix-1-nkp-cli-v2121-options-for-nutanix-deployment):
+1. To get a full list of all available options you can run the following command. I have included the list of available options in the appendix [here](#appendix-1-nkp-cli-v2121-flags-for-nutanix-deployment):
 
     ```bash
     nkp create cluster nutanix -h
@@ -154,7 +153,7 @@ This installation method lets you fully customize your cluster configuration.
     1. Copy the export script, paste it into your SSH session and execute it on your jump host. Use the `env` command to ensure that they have been set correctly.
     2. Run `nkp create bootstrap` to build the local bootstrap environment.
     3. Copy the installation script, paste it into your SSH session and execute it. If you want to test the process be sure to set `--dry-run` instead of `--self-managed`.
-    4. Process of the deployment will be output to the screen. Once the deployment has completed a kubectl conf file will be created in the directory that the installation command was executed from. Run `nkp get dashboard --kubeconfig="/home/nutanix/YOUR-CONF-FILE-NAME.conf"` to get the initial administrator username and password. 
+    4. Process of the deployment will be output to the screen. Once the deployment has completed a kubectl conf file will be created in the directory that the installation command was executed from. Run `nkp get dashboard --kubeconfig="/home/nutanix/YOUR-CONF-FILE-NAME.conf"` to get the initial administrator username and password.
     5. The UI should now be available at the IP address specified in the flag `--control-plane-endpoint-ip`. Open this IP address in a browser and logon using the initial administrator username and password.
 
 Next steps:
