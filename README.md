@@ -8,9 +8,17 @@ This is a quickstart guide to get up & running with NKP in a non-airgapped envir
 - Access to the Nutanix Support portal
 - Existing Nutanix NCI / NCM deployment
 
+## Table of Contents
+
+- [Step 1: Create Linux Jump Host](#step-1-create-linux-jump-host)
+- [Step 2: Deploy NKP](#step-2-deploy-nkp)
+- [Appendix 1: NKP CLI v2.12.1 CLI Flags](#appendix-1-nkp-cli-v2121-flags-for-nutanix-deployment)
+- [Appendix 2: Example Export & Installation Script](#appendix-2-example-nkp-cli-export--execution)
+
 ## Step 1: Create Linux Jump Host
 
 ### Step 1a: Upload Rocky image from Nutanix support portal
+
 From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.com/page/downloads?product=nkp), download the latest version of the pre-packaged image file `NKP Node OS Image (Rocky Linux) for AHV`. Deploy this image to your Nutanix infrastructure following [this guide](https://portal.nutanix.com/page/documents/details?targetId=Web-Console-Guide-Prism-v6_10:wc-image-configure-acropolis-wc-t.html) from the Nutanix support portal.
 
 ### Step 1b: Build Jump VM
