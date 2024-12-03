@@ -1,5 +1,5 @@
 
-# Nutanix NKP Quickstart guide
+# Nutanix Kubernetes Platform (NKP) Quickstart guide
 
 This is a quickstart guide to get up & running with NKP in a non-airgapped environment.
 
@@ -16,6 +16,14 @@ This is a quickstart guide to get up & running with NKP in a non-airgapped envir
 - Internet connectivity
 - Access to the Nutanix Support portal
 - Existing Nutanix NCI / NCM deployment
+
+## Overview
+
+While there are other possible deployment methods, I have found that this methodology is the most successful and repeatable way to deploy the NKP solution to a Nutanix cluster.
+
+As always its worth reviewing the official documentation on the Nutanix support portal [here](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Platform-v2_12:Nutanix-Kubernetes-Platform-v2_12) paying specific attention to the installation guide for deployment to a [Nutanix infrastructure](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Platform-v2_12:top-nutanix-basic-install-options-c.html).
+
+Also, this guide does not cover deployment where internet connectivity is not available aka an "air-gapped installation" which it is a valid configuration and deployment topology. I might add that to this guide in the future, but if you wish to perform an air-gapped deployment steps are detailed in the [documentation](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Platform-v2_12:top-nutanix-ag-install-c.html).
 
 ## Step 1: Create Linux Jump Host
 
@@ -153,7 +161,7 @@ This installation method lets you fully customize your cluster configuration.
     1. Copy the export script, paste it into your SSH session and execute it on your jump host. Use the `env` command to ensure that they have been set correctly.
     2. Run `nkp create bootstrap` to build the local bootstrap environment.
     3. Copy the installation script, paste it into your SSH session and execute it. If you want to test the process be sure to set `--dry-run` instead of `--self-managed`.
-    4. Process of the deployment will be output to the screen. Once the deployment has completed a kubectl conf file will be created in the directory that the installation command was executed from. Run `nkp get dashboard --kubeconfig="/home/nutanix/YOUR-CONF-FILE-NAME.conf"` to get the initial administrator username and password.
+    4. Process of the deployment will be output to the screen. Once the deployment has completed a kubectl conf file will be created in the directory that the installation command was executed from. Run `nkp get dashboard --kubeconfig="/home/nutanix/YOUR-CLUSTER_NAME.conf"` to get the initial administrator username and password.
     5. The UI should now be available at the IP address specified in the flag `--control-plane-endpoint-ip`. Open this IP address in a browser and logon using the initial administrator username and password.
 
 Next steps:
