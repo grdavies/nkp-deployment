@@ -10,6 +10,7 @@ This is a quickstart guide to get up & running with NKP in a non-airgapped envir
 - [Step 2: Deploy NKP](#step-2-deploy-nkp)
 - [Appendix 1: NKP CLI v2.12.1 CLI Flags](#appendix-1-nkp-cli-v2121-flags-for-nutanix-deployment)
 - [Appendix 2: Example Export & Installation Script](#appendix-2-example-nkp-cli-export--execution)
+- [Appendix 3: Useful Kubernetes Tools & Links](#appendix-3-useful-kubernetes-tools--links)
 
 ## Pre-Requisites
 
@@ -333,3 +334,19 @@ nkp create cluster nutanix -c $CLUSTER_NAME \
     --registry-password $REGISTRY_PASSWORD \
     --self-managed
 ```
+
+### Appendix 3: Useful Kubernetes Tools & Links
+
+[Kubetools](https://collabnix.github.io/kubetools/) is a huge curated list of kubernetes tools - the githubr atings for each tool can be seen adjacent to their description. This is a great resource to find / explore tools that may be useful. 
+
+Here are some of the tools that I have used to work with Kubernetes clusters.
+
+| Tool Name           | Description |                                         |
+| ------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| kubectx + kubens    | kubectx is a tool to switch between contexts and namespaces on kubectl faster.                     | [link](https://github.com/ahmetb/kubectx)         |
+| kubecolor           | A kubectl wrapper used to add colors to your kubectl output.                                       | [link](https://github.com/kubecolor/kubecolor)    |
+| Krew                | Krew is the package manager for kubectl plugins.                                                   | [link](https://github.com/kubernetes-sigs/krew)   |
+| kubespy             | kubespy is a small tool that makes it easy to observe how Kubernetes resources change in real time | [link](https://github.com/pulumi/kubespy)         |
+| stern               | Stern allows you to tail multiple pods on Kubernetes and multiple containers within the pod.       | [link](https://github.com/stern/stern)            |
+| Kui                 | Kui provides a UI that takes normal kubectl command line requests and responds with graphics.      | [link](https://github.com/kubernetes-sigs/kui)    |
+| ----                |   | ----                                              |
