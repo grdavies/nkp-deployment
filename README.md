@@ -349,4 +349,4 @@ Here are some of the tools that I have used to work with Kubernetes clusters.
 | kubespy             | kubespy is a small tool that makes it easy to observe how Kubernetes resources change in real time | [link](https://github.com/pulumi/kubespy)         |
 | stern               | Stern allows you to tail multiple pods on Kubernetes and multiple containers within the pod.       | [link](https://github.com/stern/stern)            |
 | Kui                 | Kui provides a UI that takes normal kubectl command line requests and responds with graphics.      | [link](https://github.com/kubernetes-sigs/kui)    |
-| ----                |   | ----                                              |
+| ----                |   |   |
