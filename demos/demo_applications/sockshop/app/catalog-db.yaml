@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: catalogue-db-secret
+type: Opaque
+stringData:
+  password: fake_password
+  ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCXZwwpGmA5nXByiCZUdKzYyU/Pikq1z6NWpj15Zh5GmOAZOCAG3XbYKNDMQ9r+Uyn4D+ngggXuchEUJsThUgfs1gpXRcih0XqpHk2vp5mpsw+KW42tpERXtsrWXWOoY9+wGPWhDKs+q5c3ZUgFTnZ/OTpKlVGIzfWXsSzH3Z5Xv2X4f+d791VQeosmc+Iq8/+7sxGSt55WTsWtGaod+S0RwLID2jBT9AVhA6T8aPfGkSXet9hg6YPXViwblIgIPpUmhVSqRCR/bJa+Jp8LumH4vSkVjXKGCJjVr49nfAITsTlijRJX0BNSxvkJlrbeI+U6yx02k9X94fyA7FCGY0vflKrqLPEgTF9wBYUZ6LrRFVZVeBc03lKlxhcMRdJCKCtK9E4dPpGb0CjYlD1sJH55BIQc+E8shog9pV5xwG4EndFgvQXZAaYsOX07aTd9p/MEDq9ANqemkwxIhaCbqEMsjqkMVrs0qySda5SH2SVk4EfTlD/JgggQGGu/h9z0YkWAn7LwASVauMiWMDjl5l/VuR2/ELjjOVlBKYbeD0EzxfzeiOejtah3u/XUKIxSgdMDJWlHvcVidaJHbNJK5xXypIN+wmVoB/CMjjGNniVoFkXfK7vo8c3vFzsvULaJtRLdd/WrBX71mvMf0uhpNV+nI8c1/SYAUyo7pSO8XQTZ/w== ross.davies@F23VC9VL79
+---
+apiVersion: ndb.nutanix.com/v1alpha1
+kind: Database
+metadata:
+  # This name that will be used within the kubernetes cluster
+  name: catalogue-db
+spec:
+  # Name of the NDBServer resource created earlier
+  ndbRef: ndb
+  isClone: false
+  # Database instance specific details (that is to be provisioned)
+  databaseInstance:
+    # Cluster id of the cluster where the Database has to be provisioned
+    # Can be fetched from the GET /clusters endpoint
+    clusterId: "195520f0-1f4b-42c7-ac51-a9a28018bfcb"
+    # The database instance name on NDB
+    name: "rd-sockshop-catalogue-db"
+    # The description of the database instance
+    description: Sockshop Catalog Database
+    # Names of the databases on that instance
+    databaseNames:
+      - socksdb
+    # Credentials secret name for NDB installation
+    # data: password, ssh_public_key
+    credentialSecret: catalogue-db-secret
+    size: 10
+    timezone: "UTC"
+    type: mysql
+
+    # You can specify any (or none) of these types of profiles: compute, software, network, dbParam
+    # If not specified, the corresponding Out-of-Box (OOB) profile will be used wherever applicable
+    # Name is case-sensitive. ID is the UUID of the profile. Profile should be in the "READY" state
+    # "id" & "name" are optional. If none provided, OOB may be resolved to any profile of that type
+    profiles:
+      compute:
+        name: "DEFAULT_OOB_COMPUTE"
+        # id: ""
+      # A Software profile is a mandatory input for closed-source engines: SQL Server & Oracle
+      software:
+        name: "MYSQL_8.0_ROCKY_LINUX_8_OOB"
+        # id: ""
+      network:
+        name: "MYSQL"
+        # id: ""
+      dbParam:
+        name: "DEFAULT_MYSQL_PARAMS"
+        # id: ""
+      # Only applicable for MSSQL databases
+      # dbParamInstance:
+      #   name: ""
+      #   id: ""
+    timeMachine:                        # Optional block, if removed the SLA defaults to NONE
+      sla : "DEFAULT_OOB_BRONZE_SLA"
+      dailySnapshotTime:   "01:05:00"   # Time for daily snapshot in hh:mm:ss format
+      snapshotsPerDay:     1            # Number of snapshots per day
+      logCatchUpFrequency: 90           # Frequency (in minutes)
+      weeklySnapshotDay:   "SUNDAY"  # Day of the week for weekly snapshot
+      monthlySnapshotDay:  24           # Day of the month for monthly snapshot
+      quarterlySnapshotMonth: "Jan"     # Start month of the quarterly snapshot
+    additionalArguments:                # Optional block, can specify additional arguments that are unique to database engines.
+      listener_port: "3306"
+---

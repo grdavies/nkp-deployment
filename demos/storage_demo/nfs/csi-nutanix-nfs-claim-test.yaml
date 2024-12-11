@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+   name: claim-test-files
+spec:
+   accessModes:
+      - ReadWriteMany
+   resources:
+      requests:
+         storage: 34Gi
+   storageClassName: nutanix-dynamicfile

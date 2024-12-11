@@ -63,7 +63,7 @@ From the NKP product page on the [Nutanix Download Site](https://portal.nutanix.
     runcmd:
       - '[ ! -f "/etc/yum.repos.d/nutanix_rocky9.repo" ] || mv -f /etc/yum.repos.d/nutanix_rocky9.repo /etc/yum.repos.d/nutanix_rocky9.repo.disabled'
       - dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
-      - dnf -y install docker-ce docker-ce-cli containerd.io
+      - dnf -y install git docker-ce docker-ce-cli containerd.io
       - systemctl --now enable docker
       - usermod -aG docker nutanix
       - 'curl -Lo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl'
@@ -282,7 +282,7 @@ export NUTANIX_MACHINE_TEMPLATE_IMAGE_NAME=nkp-rocky-9.4-release-1.29.6-20240816
 export NUTANIX_PRISM_ELEMENT_CLUSTER_NAME=CLUSTER1234                                         # UPDATE with Prism Element cluster name - Ex: PHX-POC207
 export NUTANIX_SUBNET_NAME=primary                                                            # UPDATE with the subnet name on which to deploy the NKP cluster
 export NUTANIX_STORAGE_CONTAINER_NAME=SelfServiceContainer                                    # UPDATE with the Prism storage container on which to deploy the NKP cluster
-export REGISTRY_URL=[https://registry-1.docker.io](https://registry-1.docker.io/)
+export REGISTRY_URL=https://registry-1.docker.io                                              # UPDATE with your docker repository URL
 export REGISTRY_USERNAME=your_dockerhub_user                                                  # UPDATE with your dockerhub username
 export REGISTRY_PASSWORD='your_dockerhub_password'                                            # UPDATE with your dockerhub password
 ```
